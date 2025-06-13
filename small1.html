@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Engineering - Business Profile Poster</title>
+    <!-- Chosen Palette: Dynamic Blues & Crisp Whites -->
+    <!-- Application Structure Plan: Designed for single A4 page poster format, this layout prioritizes ultra-concise, impactful content. 1. A bold, brand-defining header. 2. A very brief "About Us" statement. 3. A combined "Core Offerings" section presenting key supply and service areas with highly condensed descriptions and prominent icons, focusing on broad categories rather than exhaustive lists. 4. An "Our Strengths" section with three core differentiators, each reduced to a compelling headline and minimal supporting text, using large infographic icons. 5. A central, impactful "Project Snapshot" featuring the donut chart as the primary visual, now with significantly shorter, more direct text and a cleaner layout to maximize visual impact and minimize space. 6. A clear, concise "Connect With Us" section for contact details. This structure ensures all essential information is immediately digestible on a single printed page, making it highly effective as a promotional poster. -->
+    <!-- Visualization & Content Choices: 1. Report Info: Core Offerings (Supplies & Services). Goal: Inform. Viz: Combined, highly condensed cards with large Unicode icons. Justification: Maximizes content density for A4 while maintaining visual distinctiveness. Method: HTML & Tailwind CSS. 2. Report Info: Proven Experience. Goal: Inform. Viz: Donut Chart (Chart.js) as the sole focal point of the "Project Snapshot" section, presented with drastically reduced surrounding text. Justification: Provides a data-driven, professional summary of project distribution in a compact and highly visual format, optimized for immediate comprehension on a poster. Method: Chart.js (Canvas). 3. Report Info: Why Choose Us. Goal: Inform. Viz: Three concise, icon-driven cards with bold headlines. Justification: Creates impactful, scannable infographics for quick understanding of core benefits. Method: HTML/Tailwind with Unicode icons. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.3; /* Adjusted for tighter spacing */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.1; /* Tighter line height for headings */
+        }
+        section {
+            padding-top: 2.5rem; /* Reduced vertical padding */
+            padding-bottom: 2.5rem; /* Reduced vertical padding */
+        }
+        .container {
+            max-width: 900px; /* Max width to fit A4 more gracefully */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px; /* Optimized for A4 fit */
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px; /* Optimized for A4 fit */
+            max-height: 300px;
+        }
+
+        /* Print-specific adjustments for A4 */
+        @media print {
+            html, body {
+                width: 210mm; /* A4 width */
+                height: 297mm; /* A4 height */
+                margin: 0;
+                padding: 0;
+                overflow: hidden; /* Hide scrollbars */
+            }
+            body {
+                font-size: 10pt; /* Smaller base font for print */
+            }
+            h1 { font-size: 32pt; }
+            h2 { font-size: 22pt; }
+            h3 { font-size: 18pt; }
+            h4 { font-size: 14pt; }
+            p, ul { font-size: 10pt; line-height: 1.2; }
+
+            section {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+            .container {
+                max-width: 190mm; /* Adjusted container width for A4 margins */
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .lg\:flex {
+                flex-direction: column; /* Stack sections for A4 print */
+            }
+            .lg\:w-1\/2 {
+                width: 100%; /* Full width for stacked sections */
+            }
+            .lg\:space-x-16 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .lg\:mb-0 {
+                margin-bottom: 1.5rem !important; /* Add some space between stacked sections */
+            }
+            .chart-container {
+                max-width: 180mm; /* Adjusted chart width for A4 */
+                height: 160mm; /* Adjusted chart height for A4 */
+            }
+            .md\:flex-row {
+                flex-direction: column;
+            }
+            .md\:space-x-12 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .md\:w-1\/2, .lg\:w-1\/3 {
+                width: 100%;
+            }
+            .p-12, .p-10, .p-8, .p-6 {
+                padding: 1rem; /* Smaller padding for print */
+            }
+            .mb-10, .mb-12, .mb-16, .mb-20 {
+                margin-bottom: 1rem !important; /* Smaller margins for print */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-gradient-to-r from-blue-800 to-blue-950 py-10 text-center text-white shadow-2xl">
+        <div class="container">
+            <h1 class="text-5xl font-extrabold tracking-tight leading-none">SM Engineering</h1>
+            <p class="mt-3 text-xl font-light opacity-90 leading-tight">Your Premier Partner in Electrical, Mechanical & Construction Solutions</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="py-12 bg-white text-center">
+            <div class="container">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-6 leading-tight">Powering Progress with Excellence</h2>
+                <p class="text-base text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                    At **SM Engineering**, we integrate expertise across electrical, mechanical, and civil engineering to deliver innovative solutions, reliable supplies, and unparalleled results. Your success is our mission.
+                </p>
+            </div>
+        </section>
+
+        <section id="offerings" class="py-12 bg-gray-100">
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6 leading-tight">Our Core Offerings</h2>
+                    <p class="text-base text-gray-700 max-w-3xl mx-auto">
+                        Comprehensive supplies and expert services for modern industries and infrastructure.
+                    </p>
+                </div>
+
+                <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Supplies -->
+                    <div class="p-6 rounded-xl bg-blue-50 border border-blue-200 flex flex-col items-center text-center shadow-md">
+                        <div class="text-6xl text-blue-600 mb-4">⚡</div>
+                        <h4 class="text-lg font-bold text-gray-900 leading-snug">Electrical & Mechanical Supplies</h4>
+                        <p class="mt-2 text-gray-700 text-sm">High-grade electrical components, industrial cables, and precision mechanical parts for all applications.</p>
+                    </div>
+                    <!-- Services -->
+                    <div class="p-6 rounded-xl bg-blue-50 border border-blue-200 flex flex-col items-center text-center shadow-md">
+                        <div class="text-6xl text-blue-600 mb-4">🏗️</div>
+                        <h4 class="text-lg font-bold text-gray-900 leading-snug">Construction & Industrial Builds</h4>
+                        <p class="mt-2 text-gray-700 text-sm">Full-spectrum construction, specialized industrial facilities (mills, sheds), and detailed project execution.</p>
+                    </div>
+                    <!-- Combined & Others -->
+                     <div class="p-6 rounded-xl bg-blue-50 border border-blue-200 flex flex-col items-center text-center shadow-md">
+                        <div class="text-6xl text-blue-600 mb-4">➕</div>
+                        <h4 class="text-lg font-bold text-gray-900 leading-snug">Specialized Services & More</h4>
+                        <p class="mt-2 text-gray-700 text-sm">Electrical system design/maintenance and a wide array of other tailored engineering solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="why-us" class="py-12 bg-blue-700 text-white text-center">
+            <div class="container">
+                 <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold mb-6 leading-tight">Why Partner with SM Engineering?</h2>
+                    <p class="text-base text-blue-100 max-w-2xl mx-auto">
+                        Commitment to excellence, proven track record, and a client-centric approach define us.
+                    </p>
+                </div>
+                <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+                    <div class="p-6 rounded-xl shadow-xl bg-blue-800">
+                        <div class="text-6xl text-white mx-auto mb-4">🏆</div>
+                        <h3 class="text-xl font-bold mb-2">Extensive Project Experience</h3>
+                        <p class="text-blue-200 text-sm">Successfully completed large-scale housing developments with reputable constructors.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-xl bg-blue-800">
+                        <div class="text-6xl text-white mx-auto mb-4">🤝</div>
+                        <h3 class="text-xl font-bold mb-2">Unwavering Client Satisfaction</h3>
+                        <p class="text-blue-200 text-sm">Our client-first philosophy leads to strong partnerships and consistently high satisfaction.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-xl bg-blue-800">
+                        <div class="text-6xl text-white mx-auto mb-4">🌍</div>
+                        <h3 class="text-xl font-bold mb-2">Diverse & Integrated Capabilities</h3>
+                        <p class="text-blue-200 text-sm">Expertise in electrical, mechanical, and civil construction for truly integrated solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="bg-white py-12 text-center">
+            <div class="container">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
+                        Our Diverse Project Snapshot
+                    </h2>
+                    <p class="mt-2 max-w-2xl text-base text-gray-700 mx-auto">
+                        See how our expertise spans Residential, Commercial, and Industrial sectors, demonstrating our versatility and commitment to comprehensive solutions.
+                    </p>
+                </div>
+                <div class="mt-8 flex justify-center">
+                    <div class="chart-container shadow-xl rounded-xl p-6 bg-gray-50 border border-gray-200">
+                        <canvas id="projectChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-gray-900 py-12 text-white text-center">
+            <div class="container">
+                <h2 class="text-3xl font-extrabold mb-6 leading-tight">Connect With SM Engineering</h2>
+                <div class="mt-8 p-8 bg-gray-800 rounded-2xl shadow-xl inline-block border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                    <p class="mt-2 text-xl text-blue-300 mb-2">📞 Phone: <span class="font-semibold tracking-wide">03367850044</span></p>
+                    <p class="mt-2 text-xl text-blue-300">📍 Address: East Canal Rd, Rahim Yar Khan, Pakistan</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 py-6 text-center text-gray-500 text-xs">
+        <div class="container">
+            &copy; 2025 SM Engineering. All rights reserved. Designed for excellence and powered by innovation.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartData = {
+                labels: ['Residential Projects', 'Commercial Construction', 'Industrial Facilities'],
+                datasets: [{
+                    label: 'Project Portfolio Breakdown',
+                    data: [40, 35, 25],
+                    backgroundColor: [
+                        'rgba(37, 99, 235, 0.9)',
+                        'rgba(59, 130, 246, 0.9)',
+                        'rgba(29, 78, 216, 0.9)'
+                    ],
+                    borderColor: [
+                        '#ffffff'
+                    ],
+                    borderWidth: 3,
+                    hoverOffset: 8 /* Reduced for print optimization */
+                }]
+            };
+
+            const chartConfig = {
+                type: 'doughnut',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#374151',
+                                font: {
+                                    size: 14, /* Adjusted for A4 print */
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            },
+                            bodyFont: {
+                                size: 14 /* Adjusted for A4 print */
+                            },
+                            padding: 10 /* Adjusted for A4 print */
+                        }
+                    },
+                    cutout: '65%'
+                }
+            };
+
+            const projectChart = new Chart(
+                document.getElementById('projectChart'),
+                chartConfig
+            );
+        });
+    </script>
+
+</body>
+</html>
